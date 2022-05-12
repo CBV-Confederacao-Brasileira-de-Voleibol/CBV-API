@@ -1,5 +1,5 @@
 
-
+import "dotenv/config"
 import express, { NextFunction, Request,Response} from "express";
 
 import AppError from "../../errors/AppError";
@@ -26,4 +26,4 @@ app.use(
     },
   );
   
-  export default app;
+  export default app
