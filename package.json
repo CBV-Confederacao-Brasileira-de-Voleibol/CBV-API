@@ -12,14 +12,17 @@
     "start": "node src/shared/infra/http/server.ts",
     "typeorm": "tsnd -r tsconfig-paths/register node_modules/typeorm/cli",
     "db:migrate": "typeorm migration:run",
-    "db:revert": "typeorm migration:revert"
+    "db:revert": "typeorm migration:revert",
+    "orm:create": "typeorm migration:create"
   },
   "dependencies": {
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
     "pg": "^8.7.3",
+    "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.6.0",
-    "typeorm": "^0.3.6",
+    "typeorm": "0.2.41",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
