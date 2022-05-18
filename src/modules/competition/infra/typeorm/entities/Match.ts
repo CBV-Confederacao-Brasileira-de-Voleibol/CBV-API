@@ -10,7 +10,7 @@ class Match {
     date: Date;
 
     @Column()
-    time: Timestamp;
+    time: string;
 
     @Column()
     team1: string;

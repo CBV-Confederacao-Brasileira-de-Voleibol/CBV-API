@@ -34,7 +34,7 @@ export class member1652457400017 implements MigrationInterface {
                 ],
                 foreignKeys: [
                     {
-                        columnNames: ['teams_id'],
+                        columnNames: ['team_id'],
                         referencedColumnNames: ['id'],
                         referencedTableName: 'team',
                         name: 'fk_MemberAndTeam',

@@ -17,7 +17,7 @@ export class createMatch1652456194409 implements MigrationInterface {
                     },
                     {
                         name: 'time',
-                        type: 'time',
+                        type: 'varchar',
                     },
                     {
                         name: 'team1',
@@ -43,7 +43,7 @@ export class createMatch1652456194409 implements MigrationInterface {
                         onUpdate: 'CASCADE',
                     },
                     {
-                        columnNames: ['team1_id'],
+                        columnNames: ['team1'],
                         referencedColumnNames: ['id'],
                         referencedTableName: 'team',
                         name: 'fk_MatchAndTeam1',
@@ -51,7 +51,7 @@ export class createMatch1652456194409 implements MigrationInterface {
                         onUpdate: 'CASCADE',
                     },
                     {
-                        columnNames: ['team2_id'],
+                        columnNames: ['team2'],
                         referencedColumnNames: ['id'],
                         referencedTableName: 'team',
                         name: 'fk_MatchAndTeam2',
