@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateCompetition1652346213212 implements MigrationInterface {
+export class createTeam1652454418725 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         queryRunner.createTable(
             new Table({
-                name: 'competition',
+                name: 'team',
                 columns: [
                     {
                         name: 'id',
@@ -16,20 +16,23 @@ export class CreateCompetition1652346213212 implements MigrationInterface {
                         type: 'varchar',
                     },
                     {
-                        name: 'year',
-                        type: 'int',
-                    },
-                    {
-                        name: 'date_start',
-                        type: 'timestamp',
-                    },
-                    {
-                        name: 'date_end',
-                        type: 'timestamp',
-                    },
-                    {
-                        name: 'type',
+                        name: 'img',
                         type: 'varchar',
+                        isNullable: true,
+                    },
+                    {
+                        name: 'competition_id',
+                        type: 'uuid',
+                    },
+                ],
+                foreignKeys: [
+                    {
+                        columnNames: ['competition_id'],
+                        referencedColumnNames: ['id'],
+                        referencedTableName: 'competition',
+                        name: 'fk_teamAndCompetition',
+                        onDelete: 'CASCADE',
+                        onUpdate: 'CASCADE',
                     },
                 ],
             }),
@@ -37,6 +40,6 @@ export class CreateCompetition1652346213212 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('competition');
+        await queryRunner.dropTable('team');
     }
 }

@@ -1,10 +1,12 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateCompetition1652346213212 implements MigrationInterface {
+import { type } from '../../../../../ormconfig';
+
+export class createAdm1652456876307 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         queryRunner.createTable(
             new Table({
-                name: 'competition',
+                name: 'adm',
                 columns: [
                     {
                         name: 'id',
@@ -12,23 +14,11 @@ export class CreateCompetition1652346213212 implements MigrationInterface {
                         isPrimary: true,
                     },
                     {
-                        name: 'name',
+                        name: 'login',
                         type: 'varchar',
                     },
                     {
-                        name: 'year',
-                        type: 'int',
-                    },
-                    {
-                        name: 'date_start',
-                        type: 'timestamp',
-                    },
-                    {
-                        name: 'date_end',
-                        type: 'timestamp',
-                    },
-                    {
-                        name: 'type',
+                        name: 'password',
                         type: 'varchar',
                     },
                 ],
@@ -37,6 +27,6 @@ export class CreateCompetition1652346213212 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('competition');
+        await queryRunner.dropTable('adm');
     }
 }
