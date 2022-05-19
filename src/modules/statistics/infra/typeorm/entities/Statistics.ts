@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
-import Member from '@modules/user/infra/typeorm/entities/Member';
+import Member from '@modules/team/infra/typeorm/entities/Member';
 
 @Entity('statistics')
 class Statistics {
