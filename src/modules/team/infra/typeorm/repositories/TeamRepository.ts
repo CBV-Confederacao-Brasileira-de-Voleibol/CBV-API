@@ -10,6 +10,13 @@ class TeamRepository implements ITeamRepository {
     constructor() {
         this.ormRepository = getRepository(Team);
     }
+    public async findByName(name_team: string): Promise<Team | undefined> {
+        const findTeamByName = await this.ormRepository.findOne({
+            name: name_team,
+        });
+
+        return findTeamByName;
+    }
     public async create(data: ICreateTeamDTO): Promise<Team> {
         const addteam = this.ormRepository.create(data);
         await this.ormRepository.save(addteam);

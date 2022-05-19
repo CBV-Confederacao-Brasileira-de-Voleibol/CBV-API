@@ -1,7 +1,9 @@
 import { Router } from 'express';
 
+import teamRouter from '@modules/team/infra/http/routes/team.routes';
+
 const routes = Router();
 
-routes.get('/teste');
+routes.use('/team', teamRouter);
 
 export default routes;

@@ -13,7 +13,7 @@ interface IRequest {
 }
 
 @injectable()
-class CreateTeam {
+class CreateTeamService {
     constructor(
         @inject('TeamRepository')
         private teamRepository: ITeamRepository,
@@ -28,13 +28,20 @@ class CreateTeam {
     }: IRequest): Promise<Team> {
         const findTeam = await this.teamRepository.findByName(name);
 
-        if (!findTeam) {
+        if (findTeam) {
             throw new AppError(
                 'There is already a team registered with that name',
                 401,
             );
         }
 
+        const findCompetition = await this.competitionRepository.findById(
+            competition_id,
+        );
+
+        if (!findCompetition) {
+            throw new AppError('Competition id is not exists!', 401);
+        }
         const team = await this.teamRepository.create({
             name,
             img,
@@ -45,4 +52,4 @@ class CreateTeam {
     }
 }
 
-export default CreateTeam;
+export default CreateTeamService;

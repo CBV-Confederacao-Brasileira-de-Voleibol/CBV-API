@@ -1,4 +1,10 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+    Column,
+    Entity,
+    JoinColumn,
+    ManyToOne,
+    PrimaryGeneratedColumn,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
 import Team from '@modules/team/infra/typeorm/entities/Team';
@@ -32,6 +38,7 @@ class Competition {
     // relação
 
     @ManyToOne(() => Team, team => team.competition)
+    @JoinColumn({ name: 'id' })
     teams: Team[];
 }
 
