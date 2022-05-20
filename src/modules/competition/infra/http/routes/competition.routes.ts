@@ -3,8 +3,10 @@ import { Router } from 'express';
 import { JoinColumn } from 'typeorm';
 
 import CompetitionContoller from '../controllers/CompetitionContoller';
+import GenerateMatchController from '../controllers/GenerateMatchController';
 
 const competitionController = new CompetitionContoller();
+const generateMatchController = new GenerateMatchController();
 
 const competitionRouter = Router();
 
@@ -22,4 +24,13 @@ competitionRouter.post(
     competitionController.create,
 );
 
+competitionRouter.post(
+    '/generatematchs',
+    celebrate({
+        [Segments.BODY]: {
+            competition_id: Joi.string().required(),
+        },
+    }),
+    generateMatchController.create,
+);
 export default competitionRouter;

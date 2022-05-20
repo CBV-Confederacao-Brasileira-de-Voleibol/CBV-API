@@ -10,6 +10,7 @@ class TeamRepository implements ITeamRepository {
     constructor() {
         this.ormRepository = getRepository(Team);
     }
+
     public async findByName(name_team: string): Promise<Team | undefined> {
         const findTeamByName = await this.ormRepository.findOne({
             name: name_team,
@@ -27,6 +28,12 @@ class TeamRepository implements ITeamRepository {
         const findTeam = await this.ormRepository.findOne({ id: team_id });
 
         return findTeam;
+    }
+
+    public async findByCompetitionId(competition_id: string): Promise<Team[]> {
+        const findAllTeam = await this.ormRepository.find({ competition_id });
+
+        return findAllTeam;
     }
 }
 

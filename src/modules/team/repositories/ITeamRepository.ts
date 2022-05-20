@@ -5,4 +5,5 @@ export default interface ITeamRepository {
     create(data: ICreateTeamDTO): Promise<Team>;
     findById(team_id: string): Promise<Team | undefined>;
     findByName(name_team: string): Promise<Team | undefined>;
+    findByCompetitionId(competition_id: string): Promise<Team[]>;
 }
