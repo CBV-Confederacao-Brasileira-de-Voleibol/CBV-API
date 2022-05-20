@@ -22,6 +22,7 @@ export class member1652457400017 implements MigrationInterface {
                     {
                         name: 'position',
                         type: 'varchar',
+                        isNullable: true,
                     },
                     {
                         name: 'age',
