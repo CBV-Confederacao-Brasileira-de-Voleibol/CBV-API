@@ -2,7 +2,7 @@ import { classToClass } from 'class-transformer';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import CreateCompetitionService from '@modules/statistics/services/CreateCompetitionService';
+import CreateCompetitionService from '@modules/competition/services/CreateCompetitionService';
 
 class CompetitionContoller {
     async create(request: Request, response: Response): Promise<Response> {
