@@ -11,11 +11,23 @@ class MatchRepository implements IMatchRepository {
     constructor() {
         this.ormRepository = getRepository(Match);
     }
+
     public async create(data: ICreateMatchDTO): Promise<Match> {
         const newMatch = this.ormRepository.create(data);
         await this.ormRepository.save(newMatch);
 
         return newMatch;
+    }
+
+    public async findAllMatchOfCompetition(
+        competition_id: string,
+        phase_id: string,
+    ): Promise<Match[]> {
+        const findMatchs = await this.ormRepository.find({
+            relations: ['team11', 'team22'],
+            where: { competition_id, phase_id },
+        });
+        return findMatchs;
     }
 }
 

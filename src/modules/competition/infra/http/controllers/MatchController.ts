@@ -3,8 +3,9 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import GenerateMatchService from '@modules/competition/services/GenerateMatchService';
+import ShowMatchService from '@modules/competition/services/ShowMatchService';
 
-class GenerateMatchController {
+class MatchController {
     async create(request: Request, response: Response): Promise<Response> {
         const { competition_id } = request.body;
 
@@ -16,6 +17,18 @@ class GenerateMatchController {
 
         return response.json({ generateMatch: classToClass(generateMatch) });
     }
+    async show(request: Request, response: Response): Promise<Response> {
+        const { competition_id, phase_id } = request.body;
+
+        const showMatchService = container.resolve(ShowMatchService);
+
+        const showMatch = await showMatchService.execute({
+            competition_id,
+            phase_id,
+        });
+
+        return response.json({ showMatch: classToClass(showMatch) });
+    }
 }
 
-export default GenerateMatchController;
+export default MatchController;

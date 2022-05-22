@@ -65,6 +65,7 @@ class GenerateMatchService {
                     team2,
                     round: j,
                     phase_id: pahse.id,
+                    competition_id,
                 });
             }
         }

@@ -1,14 +1,17 @@
 import { celebrate, Joi, Segments } from 'celebrate';
 import { Router } from 'express';
-import { JoinColumn } from 'typeorm';
 
 import CompetitionContoller from '../controllers/CompetitionContoller';
-import GenerateMatchController from '../controllers/GenerateMatchController';
+import MatchController from '../controllers/MatchController';
+import PhaseController from '../controllers/PhaseController';
 
 const competitionController = new CompetitionContoller();
-const generateMatchController = new GenerateMatchController();
+const matchController = new MatchController();
+const phaseController = new PhaseController();
 
 const competitionRouter = Router();
+
+competitionRouter.get('/phase', phaseController.show);
 
 competitionRouter.post(
     '/',
@@ -31,6 +34,6 @@ competitionRouter.post(
             competition_id: Joi.string().required(),
         },
     }),
-    generateMatchController.create,
+    matchController.create,
 );
 export default competitionRouter;

@@ -3,11 +3,14 @@ import {
     Entity,
     JoinColumn,
     ManyToOne,
+    OneToMany,
     PrimaryGeneratedColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
 import Team from '@modules/team/infra/typeorm/entities/Team';
+
+import Match from './Match';
 
 @Entity('competition')
 class Competition {
@@ -40,6 +43,9 @@ class Competition {
     @ManyToOne(() => Team, team => team.competition)
     @JoinColumn({ name: 'id' })
     teams: Team[];
+
+    @OneToMany(() => Match, match => match.competition)
+    matchs: Match[];
 }
 
 export default Competition;
