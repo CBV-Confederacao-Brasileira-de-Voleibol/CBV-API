@@ -1,7 +1,8 @@
 export default interface ICreateMatchDTO {
-    data: Date;
+    date: Date;
     time: string;
     team1: string;
     team2: string;
+    round: number;
     phase_id: string;
 }

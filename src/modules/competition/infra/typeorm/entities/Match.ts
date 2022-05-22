@@ -17,6 +17,8 @@ class Match {
 
     @Column()
     team2: string;
+    @Column()
+    round: number;
 
     @Column()
     phase_id: string;

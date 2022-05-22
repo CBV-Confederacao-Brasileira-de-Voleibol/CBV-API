@@ -54,10 +54,18 @@ class GenerateMatchService {
         for (let i = 0; i <= allTeamsLength; i++) {
             // eslint-disable-next-line no-plusplus
             for (let j = i + 1; j <= allTeamsLength2; j++) {
-                team1 = allTeams[i].name;
-                team2 = allTeams[j].name;
+                team1 = allTeams[i].id;
+                team2 = allTeams[j].id;
 
-                console.log(team1, 'X', team2, ': Rodada ', i);
+                // eslint-disable-next-line no-await-in-loop
+                await this.matchRepository.create({
+                    date: new Date(),
+                    time: '10 h',
+                    team1,
+                    team2,
+                    round: j,
+                    phase_id: pahse.id,
+                });
             }
         }
 
