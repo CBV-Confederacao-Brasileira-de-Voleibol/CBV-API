@@ -27,7 +27,7 @@ class MatchController {
             phase_id,
         });
 
-        return response.json({ showMatch: classToClass(showMatch) });
+        return response.json({ Match: classToClass(showMatch) });
     }
 }
 

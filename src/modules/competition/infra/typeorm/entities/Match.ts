@@ -35,6 +35,12 @@ class Match {
     round: number;
 
     @Column()
+    scoreboard_team1: number;
+
+    @Column()
+    scoreboard_team2: number;
+
+    @Column()
     phase_id: string;
 
     @Column()

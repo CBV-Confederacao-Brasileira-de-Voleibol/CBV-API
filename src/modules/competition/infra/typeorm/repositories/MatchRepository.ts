@@ -19,6 +19,15 @@ class MatchRepository implements IMatchRepository {
         return newMatch;
     }
 
+    public async findById(match_id: string): Promise<Match | undefined> {
+        const findMatch = await this.ormRepository.findOne({ id: match_id });
+
+        return findMatch;
+    }
+    public async save(match: Match): Promise<Match> {
+        return this.ormRepository.save(match);
+    }
+
     public async findAllMatchOfCompetition(
         competition_id: string,
         phase_id: string,
