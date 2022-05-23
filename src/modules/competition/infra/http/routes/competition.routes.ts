@@ -12,6 +12,7 @@ const phaseController = new PhaseController();
 const competitionRouter = Router();
 
 competitionRouter.get('/phase', phaseController.show);
+competitionRouter.get('/', competitionController.show);
 
 competitionRouter.post(
     '/',

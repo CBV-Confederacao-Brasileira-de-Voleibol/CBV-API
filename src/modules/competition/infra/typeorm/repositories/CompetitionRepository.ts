@@ -11,6 +11,7 @@ class CompetitionRepository implements ICompetitiomRepository {
     constructor() {
         this.ormRepository = getRepository(Competition);
     }
+
     public async create(data: ICreateCompetitionDTO): Promise<Competition> {
         const addCompetition = this.ormRepository.create(data);
 
@@ -26,6 +27,12 @@ class CompetitionRepository implements ICompetitiomRepository {
         });
 
         return findCompetition;
+    }
+
+    public async findByAll(): Promise<Competition[]> {
+        const findAll = await this.ormRepository.find();
+
+        return findAll;
     }
 }
 
