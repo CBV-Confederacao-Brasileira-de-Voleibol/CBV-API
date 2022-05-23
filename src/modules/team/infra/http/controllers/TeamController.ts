@@ -1,8 +1,9 @@
 import { classToClass, classToClassFromExist } from 'class-transformer';
-import { Request, Response } from 'express';
+import { request, Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import CreateTeamService from '@modules/team/services/CreateTeamService';
+import ShowTeamServices from '@modules/team/services/ShowTeamServices';
 
 export default class TeamController {
     public async create(
@@ -20,5 +21,15 @@ export default class TeamController {
         });
 
         return response.json({ team: classToClass(team) });
+    }
+
+    public async show(request: Request, response: Response): Promise<Response> {
+        const { competition_id } = request.body;
+
+        const showTeamServices = container.resolve(ShowTeamServices);
+
+        const teams = await showTeamServices.execute(competition_id);
+
+        return response.json({ teams: classToClass(teams) });
     }
 }
