@@ -7,6 +7,16 @@ const memberRouter = Router();
 
 const memberController = new MemberController();
 
+memberRouter.get(
+    '/',
+    celebrate({
+        [Segments.BODY]: {
+            team_id: Joi.string().required(),
+        },
+    }),
+    memberController.show,
+);
+
 memberRouter.post(
     '/',
     celebrate({

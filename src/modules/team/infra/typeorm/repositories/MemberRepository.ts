@@ -23,6 +23,12 @@ class MemberRepository implements IMemberRepository {
 
         return findMember;
     }
+
+    public async findByTeamId(team_id: string): Promise<Member[]> {
+        const members = await this.ormRepository.find({ team_id });
+
+        return members;
+    }
 }
 
 export default MemberRepository;
