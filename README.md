@@ -11,15 +11,24 @@ Em seguida, utilize o comando abaixo para instalar as dependências:
 ```bash
 yarn install
 ```
+# Subindo o Docker 
+
+```bash
+docker-compose up
+```
 
 # Iniciando a Apliação 
 
 Execute o seguinte comando para iniciar o aplicativo em um ambiente de desenvolvimento:
 
+Iniciar o Banco:
 ```bash
-yarn dev`
+docker start CBV_DB
 ```
-
+Iniciar a Aplicação 
+```bash
+docker start CBV_APP
+```
 
 ### 🛠 Tecnologias
 
