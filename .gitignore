@@ -1,0 +1,15 @@
+node_modules
+.DS_Store
+.idea/
+.vscode/
+build/
+tmp/
+.env
+TODO
+src/test
+scripts/
+yarn-error.log
+debug.log
+dist
+/coverage
+ormconfig.js
