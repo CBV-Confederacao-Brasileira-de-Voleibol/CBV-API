@@ -16,6 +16,7 @@
     "orm:create": "typeorm migration:create"
   },
   "dependencies": {
+    "@babel/node": "^7.17.10",
     "celebrate": "^15.0.1",
     "class-transformer": "0.4.0",
     "dotenv": "^16.0.1",
@@ -33,7 +34,7 @@
     "@babel/core": "^7.17.12",
     "@babel/plugin-proposal-class-properties": "^7.17.12",
     "@babel/plugin-proposal-decorators": "^7.17.12",
-    "@babel/preset-env": "^7.17.12",
+    "@babel/preset-env": "^7.18.2",
     "@babel/preset-typescript": "^7.17.12",
     "@types/express": "^4.17.13",
     "@types/uuid": "^8.3.4",
