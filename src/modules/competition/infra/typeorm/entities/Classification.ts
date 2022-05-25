@@ -33,7 +33,7 @@ class Classification {
     lost_sets: number;
 
     @Column()
-    team_id: number;
+    team_id: string;
 
     constructor() {
         if (!this.id) {

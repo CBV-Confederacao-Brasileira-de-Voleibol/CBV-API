@@ -10,7 +10,7 @@ import { v4 as uuid } from 'uuid';
 
 import Classification from '@modules/competition/infra/typeorm/entities/Classification';
 import Competition from '@modules/competition/infra/typeorm/entities/Competition';
-import Member from '@modules/user/infra/typeorm/entities/Member';
+import Member from '@modules/team/infra/typeorm/entities/Member';
 
 @Entity()
 class Team {
