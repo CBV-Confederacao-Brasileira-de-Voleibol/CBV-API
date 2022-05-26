@@ -12,6 +12,4 @@ module.exports = {
     cli: {
         migrationsDir: './src/shared/infra/typeorm/migrations'
     },
-    synchronize: true,
-    ssl: this.isProduction(),
 }
