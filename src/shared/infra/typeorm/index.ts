@@ -1,14 +1,7 @@
-import { createConnection, getConnectionOptions } from 'typeorm';
+import { createConnection } from 'typeorm';
 
-interface IConnectionOptions {
-    host: string;
-}
+export default createConnection().then(async conn => {
+    console.log('Connection established...');
 
-getConnectionOptions().then(options => {
-    const newOptions = options as IConnectionOptions;
-    newOptions.host = process.env.DB_HOST || 'database'; // Esta opção deve estar exatamente com o mesmo nome definido no arquivo docker-compose.yml
-
-    createConnection({
-        ...options,
-    });
+    return conn;
 });
