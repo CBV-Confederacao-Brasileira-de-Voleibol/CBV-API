@@ -8,14 +8,13 @@ module.exports = {
 
     entities: ['./dist/modules/**/infra/typeorm/entities/*.js'],
     migrations: ['./dist/shared/infra/typeorm/migrations/*.js'],
-  
+
     cli: {
-      migrationsDir: './src/shared/infra/typeorm/migrations'
+        migrationsDir: './src/shared/infra/typeorm/migrations'
     },
     dialect: 'postgresql',
     ssl: true,
     dialectOptions: {
-      ssl: { require: true },
+        ssl: { require: true },
     },
-  }
-  
+}
