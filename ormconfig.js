@@ -12,9 +12,5 @@ module.exports = {
     cli: {
         migrationsDir: './src/shared/infra/typeorm/migrations'
     },
-    dialect: 'postgresql',
-    ssl: true,
-    dialectOptions: {
-        ssl: { require: true },
-    },
+    "synchronize": false,
 }
