@@ -29,13 +29,14 @@ Iniciar a Aplicação
 ```bash
 docker start CBV_APP
 ```
+### Deploy
+
+- [cbv-api](https://cbv-api.herokuapp.com/)
+
 
 ### 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
-
-### Deploy
--[cbv-api](https://cbv-api.herokuapp.com/)
 
 - [Node.js](https://nodejs.org/en/)
 - [TypeScript](https://www.typescriptlang.org/)
