@@ -1,12 +1,22 @@
 module.exports = {
-    type:'postgres',
-    url: process.env.DATABASE_URL,
+    type: process.env.DB_TYPE,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    extra:{
+        ssl:{
+            require:true,
+            rejectUnauthorized:false
+        }
 
+    },
     entities: ['./dist/modules/**/infra/typeorm/entities/*.js'],
     migrations: ['./dist/shared/infra/typeorm/migrations/*.js'],
 
     cli: {
         migrationsDir: './src/shared/infra/typeorm/migrations'
     },
-   
+    
 }
