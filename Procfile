@@ -1,3 +1,3 @@
-web: node src/shared/infra/http/server.ts
+web: node dist/src/shared/infra/http/server.js
 
 
