@@ -1,7 +1,6 @@
 {
   "name": "CBV-API",
   "version": "1.0.0",
-  "type": "module",
   "main": "index.js",
   "repository": "git@github.com:CBV-Confederacao-Brasileira-de-Voleibol/CBV-API.git",
   "author": "Msouza <msdsantos96@gmail.com>",
