@@ -12,4 +12,11 @@ module.exports = {
     cli: {
         migrationsDir: './src/shared/infra/typeorm/migrations'
     },
+    "dialect": "postgres",
+    "dialectOptions": {
+        "ssl": {
+            "require": true,
+            "rejectUnauthorized": false
+        }
+    }
 }
