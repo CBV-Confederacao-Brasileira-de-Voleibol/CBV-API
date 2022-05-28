@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import CreateMemberService from '@modules/team/services/CreateMemberService';
+import DeleteMemberService from '@modules/team/services/DeleteMemberService';
 import ShowMemberService from '@modules/team/services/ShowMemberService';
 
 export default class MemberController {
@@ -32,5 +33,18 @@ export default class MemberController {
         const members = await showMemberService.execute(team_id);
 
         return response.json({ members: classToClass(members) });
+    }
+
+    public async delete(
+        request: Request,
+        response: Response,
+    ): Promise<Response> {
+        const { member_id } = request.params;
+
+        const deleteMemberService = container.resolve(DeleteMemberService);
+
+        const result = await deleteMemberService.execute(member_id);
+
+        return response.json({ result: classToClass(result) });
     }
 }
