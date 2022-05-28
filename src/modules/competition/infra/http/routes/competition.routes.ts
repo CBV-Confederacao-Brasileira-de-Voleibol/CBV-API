@@ -19,7 +19,7 @@ competitionRouter.post(
     celebrate({
         [Segments.BODY]: {
             name: Joi.string().required(),
-            year: Joi.number().required(),
+            description: Joi.string().required(),
             date_start: Joi.date().required(),
             date_end: Joi.date().required(),
             type: Joi.string().required(),

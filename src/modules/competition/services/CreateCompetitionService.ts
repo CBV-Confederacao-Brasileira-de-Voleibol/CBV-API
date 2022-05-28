@@ -5,7 +5,7 @@ import ICompetitiomRepository from '@modules/competition/repositories/ICompetiti
 
 interface IRequest {
     name: string;
-    year: number;
+    description: number;
     date_start: Date;
     date_end: Date;
     type: string;
@@ -19,14 +19,14 @@ class CreateCompetitionService {
 
     public async execute({
         name,
-        year,
+        description,
         date_start,
         date_end,
         type,
     }: IRequest): Promise<Competition> {
         const competition = await this.competitionRepository.create({
             name,
-            year,
+            description,
             date_start,
             date_end,
             type,

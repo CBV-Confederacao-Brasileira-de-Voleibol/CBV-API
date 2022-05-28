@@ -7,7 +7,7 @@ import ShowCompetitionService from '@modules/competition/services/ShowCompetitio
 
 class CompetitionContoller {
     async create(request: Request, response: Response): Promise<Response> {
-        const { name, year, date_start, date_end, type } = request.body;
+        const { name, description, date_start, date_end, type } = request.body;
 
         const createCompetitionService = container.resolve(
             CreateCompetitionService,
@@ -15,7 +15,7 @@ class CompetitionContoller {
 
         const competition = await createCompetitionService.execute({
             name,
-            year,
+            description,
             date_start,
             date_end,
             type,

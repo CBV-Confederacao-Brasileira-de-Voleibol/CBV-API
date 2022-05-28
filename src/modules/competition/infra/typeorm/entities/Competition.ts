@@ -21,7 +21,7 @@ class Competition {
     name: string;
 
     @Column()
-    year: number;
+    description: number;
 
     @Column()
     date_start: Date;

@@ -1,6 +1,6 @@
 export default interface ICreateCompetitionDTO {
     name: string;
-    year: number;
+    description: number;
     date_start: Date;
     date_end: Date;
     type: string;
