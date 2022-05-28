@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import CreateCompetitionService from '@modules/competition/services/CreateCompetitionService';
+import DeleteCompetitionService from '@modules/competition/services/DeleteCompetitionService';
 import ShowCompetitionService from '@modules/competition/services/ShowCompetitionService';
 
 class CompetitionContoller {
@@ -32,6 +33,18 @@ class CompetitionContoller {
         const competitions = await showCompetitionService.execute();
 
         return response.json({ competitions: classToClass(competitions) });
+    }
+
+    async delete(request: Request, response: Response): Promise<Response> {
+        const { competition_id } = request.params;
+
+        const deleteCompetitionService = container.resolve(
+            DeleteCompetitionService,
+        );
+
+        const result = await deleteCompetitionService.execute(competition_id);
+
+        return response.json({ result: classToClass(result) });
     }
 }
 

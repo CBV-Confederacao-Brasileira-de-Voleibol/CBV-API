@@ -37,4 +37,6 @@ competitionRouter.post(
     }),
     matchController.create,
 );
+
+competitionRouter.delete('/:competition_id', competitionController.delete);
 export default competitionRouter;

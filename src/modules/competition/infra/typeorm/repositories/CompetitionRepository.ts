@@ -1,4 +1,4 @@
-import { getRepository, Repository } from 'typeorm';
+import { DeleteResult, getRepository, Repository } from 'typeorm';
 
 import ICreateCompetitionDTO from '@modules/competition/dtos/ICreateCompetitionDTO';
 import ICompetitiomRepository from '@modules/competition/repositories/ICompetitionRepository';
@@ -33,6 +33,12 @@ class CompetitionRepository implements ICompetitiomRepository {
         const findAll = await this.ormRepository.find();
 
         return findAll;
+    }
+
+    public async delete(competition_id: string): Promise<DeleteResult> {
+        const result = await this.ormRepository.delete({ id: competition_id });
+
+        return result;
     }
 }
 
