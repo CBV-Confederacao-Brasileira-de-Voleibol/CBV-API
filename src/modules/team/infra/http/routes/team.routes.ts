@@ -7,15 +7,7 @@ const teamRouter = Router();
 
 const teamController = new TeamController();
 
-teamRouter.get(
-    '/',
-    celebrate({
-        [Segments.BODY]: {
-            competition_id: Joi.string().required(),
-        },
-    }),
-    teamController.show,
-);
+teamRouter.get('/:competition_id', teamController.show);
 
 teamRouter.post(
     '/',

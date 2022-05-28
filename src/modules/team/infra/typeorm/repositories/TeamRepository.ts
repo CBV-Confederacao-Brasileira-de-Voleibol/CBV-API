@@ -31,7 +31,10 @@ class TeamRepository implements ITeamRepository {
     }
 
     public async findByCompetitionId(competition_id: string): Promise<Team[]> {
-        const findAllTeam = await this.ormRepository.find({ competition_id });
+        const findAllTeam = await this.ormRepository.find({
+            where: { competition_id },
+            relations: ['competition'],
+        });
 
         return findAllTeam;
     }

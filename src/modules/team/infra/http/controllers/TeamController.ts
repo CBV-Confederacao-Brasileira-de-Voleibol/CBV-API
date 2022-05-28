@@ -24,7 +24,7 @@ export default class TeamController {
     }
 
     public async show(request: Request, response: Response): Promise<Response> {
-        const { competition_id } = request.body;
+        const { competition_id } = request.params;
 
         const showTeamServices = container.resolve(ShowTeamServices);
 

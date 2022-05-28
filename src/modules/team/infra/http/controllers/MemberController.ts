@@ -25,7 +25,7 @@ export default class MemberController {
         return response.json({ member: classToClass(member) });
     }
     public async show(request: Request, response: Response): Promise<Response> {
-        const { team_id } = request.body;
+        const { team_id } = request.params;
 
         const showMemberService = container.resolve(ShowMemberService);
 

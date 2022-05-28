@@ -33,7 +33,7 @@ class Team {
     }
     // relação
 
-    @OneToMany(() => Competition, competition => competition.teams)
+    @ManyToOne(() => Competition, competition => competition.teams)
     @JoinColumn({ name: 'competition_id' })
     competition: Competition;
 

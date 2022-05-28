@@ -26,15 +26,6 @@ class CreateTeamService {
         img,
         competition_id,
     }: IRequest): Promise<Team> {
-        const findTeam = await this.teamRepository.findByName(name);
-
-        if (findTeam) {
-            throw new AppError(
-                'There is already a team registered with that name',
-                401,
-            );
-        }
-
         const findCompetition = await this.competitionRepository.findById(
             competition_id,
         );
