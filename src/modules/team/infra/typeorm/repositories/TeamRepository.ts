@@ -1,4 +1,4 @@
-import { getRepository, Repository } from 'typeorm';
+import { DeleteResult, getRepository, Repository } from 'typeorm';
 
 import ICreateTeamDTO from '@modules/team/dtos/ICreateTeamDTO';
 import ITeamRepository from '@modules/team/repositories/ITeamRepository';
@@ -40,6 +40,12 @@ class TeamRepository implements ITeamRepository {
         });
 
         return findAllTeam;
+    }
+
+    public async delete(team_id: string): Promise<DeleteResult> {
+        const result = await this.ormRepository.delete({ id: team_id });
+
+        return result;
     }
 }
 

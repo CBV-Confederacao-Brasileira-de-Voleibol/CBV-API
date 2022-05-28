@@ -22,4 +22,6 @@ teamRouter.post(
     teamController.create,
 );
 
+teamRouter.delete('/:team_id', teamController.delete);
+
 export default teamRouter;

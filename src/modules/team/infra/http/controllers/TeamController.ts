@@ -3,6 +3,7 @@ import { request, Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import CreateTeamService from '@modules/team/services/CreateTeamService';
+import DeleteTeamService from '@modules/team/services/DeleteTeamService';
 import ShowAllTeamCompetitionService from '@modules/team/services/ShowAllTeamCompetitionServices';
 import ShowTeamService from '@modules/team/services/ShowTeamService';
 
@@ -46,5 +47,17 @@ export default class TeamController {
         const teams = await showTeamServices.execute(team_id);
 
         return response.json({ teams: classToClass(teams) });
+    }
+    public async delete(
+        request: Request,
+        response: Response,
+    ): Promise<Response> {
+        const { team_id } = request.params;
+
+        const deleteTeamServices = container.resolve(DeleteTeamService);
+
+        const result = await deleteTeamServices.execute(team_id);
+
+        return response.json({ result: classToClass(result) });
     }
 }
