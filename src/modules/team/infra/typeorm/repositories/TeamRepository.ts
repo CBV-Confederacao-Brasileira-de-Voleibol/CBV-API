@@ -25,7 +25,10 @@ class TeamRepository implements ITeamRepository {
         return addteam;
     }
     public async findById(team_id: string): Promise<Team | undefined> {
-        const findTeam = await this.ormRepository.findOne({ id: team_id });
+        const findTeam = await this.ormRepository.findOne({
+            where: { id: team_id },
+            relations: ['competition'],
+        });
 
         return findTeam;
     }

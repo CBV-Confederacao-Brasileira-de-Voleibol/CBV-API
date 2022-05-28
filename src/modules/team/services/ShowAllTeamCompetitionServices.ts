@@ -7,7 +7,7 @@ import Team from '../infra/typeorm/entities/Team';
 import ITeamRepository from '../repositories/ITeamRepository';
 
 @injectable()
-class ShowTeamServices {
+class ShowAllTeamCompetitionService {
     constructor(
         @inject('TeamRepository')
         private teamRepository: ITeamRepository,
@@ -32,4 +32,4 @@ class ShowTeamServices {
     }
 }
 
-export default ShowTeamServices;
+export default ShowAllTeamCompetitionService;

@@ -7,7 +7,8 @@ const teamRouter = Router();
 
 const teamController = new TeamController();
 
-teamRouter.get('/:competition_id', teamController.show);
+teamRouter.get('/competition/:competition_id', teamController.show);
+teamRouter.get('/:team_id', teamController.read);
 
 teamRouter.post(
     '/',
