@@ -15,14 +15,22 @@ class ShowMemberService {
         private memberRepository: IMemberRepository,
     ) {}
 
-    async execute(team_id: string): Promise<Member[]> {
+    async execute(team_id: string, type: string): Promise<Member[]> {
         const team = await this.teamRepository.findById(team_id);
 
         if (!team) {
             throw new AppError('Team id is not exists!', 401);
         }
+        // type retorna todos os membros
+        if (type === 'All') {
+            const members = await this.memberRepository.findByTeamId(team_id);
+            return members;
+        }
 
-        const members = await this.memberRepository.findByTeamId(team_id);
+        const members = await this.memberRepository.findByTeamIdAndType(
+            team_id,
+            type,
+        );
         return members;
     }
 }

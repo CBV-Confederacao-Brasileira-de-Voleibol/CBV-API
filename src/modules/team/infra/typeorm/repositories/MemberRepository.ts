@@ -29,7 +29,16 @@ class MemberRepository implements IMemberRepository {
 
         return members;
     }
+    public async findByTeamIdAndType(
+        team_id: string,
+        type: string,
+    ): Promise<Member[]> {
+        const members = await this.ormRepository.find({
+            where: { team_id, type },
+        });
 
+        return members;
+    }
     public async delete(member_id: string): Promise<DeleteResult> {
         const result = await this.ormRepository.delete({ id: member_id });
 

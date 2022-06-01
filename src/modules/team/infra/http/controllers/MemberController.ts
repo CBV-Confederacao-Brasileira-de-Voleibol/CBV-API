@@ -30,7 +30,7 @@ export default class MemberController {
 
         const showMemberService = container.resolve(ShowMemberService);
 
-        const members = await showMemberService.execute(team_id);
+        const members = await showMemberService.execute(team_id, 'All');
 
         return response.json({ members: classToClass(members) });
     }
@@ -46,5 +46,18 @@ export default class MemberController {
         const result = await deleteMemberService.execute(member_id);
 
         return response.json({ result: classToClass(result) });
+    }
+
+    public async showPlayer(
+        request: Request,
+        response: Response,
+    ): Promise<Response> {
+        const { team_id } = request.params;
+
+        const showMemberService = container.resolve(ShowMemberService);
+
+        const members = await showMemberService.execute(team_id, 'Atleta');
+
+        return response.json({ members: classToClass(members) });
     }
 }

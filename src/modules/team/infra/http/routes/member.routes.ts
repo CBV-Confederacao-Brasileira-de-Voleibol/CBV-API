@@ -8,6 +8,7 @@ const memberRouter = Router();
 const memberController = new MemberController();
 
 memberRouter.get('/:team_id', memberController.show);
+memberRouter.get('/player/:team_id', memberController.showPlayer);
 memberRouter.delete('/:member_id', memberController.delete);
 
 memberRouter.post(
