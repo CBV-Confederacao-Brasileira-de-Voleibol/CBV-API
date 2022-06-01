@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
+import Match from '@modules/competition/infra/typeorm/entities/Match';
 import Member from '@modules/team/infra/typeorm/entities/Member';
 
 @Entity('statistics')
@@ -32,6 +33,9 @@ class Statistics {
     @Column()
     wrong_attack: number;
 
+    @Column()
+    match_id: string;
+
     constructor() {
         if (!this.id) {
             this.id = uuid();
@@ -41,6 +45,10 @@ class Statistics {
     @ManyToOne(() => Member, member => member.statistics)
     @JoinColumn({ name: 'member_id' })
     member: Member;
+
+    @ManyToOne(() => Match, match => match.statistics)
+    @JoinColumn({ name: 'match_id' })
+    match: Match;
 }
 
 export default Statistics;

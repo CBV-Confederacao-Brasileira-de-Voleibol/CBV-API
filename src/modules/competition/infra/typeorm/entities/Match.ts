@@ -3,12 +3,15 @@ import {
     Entity,
     JoinColumn,
     ManyToOne,
+    OneToMany,
     OneToOne,
     PrimaryGeneratedColumn,
     Timestamp,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
+import Statistics from '@modules/statistics/infra/typeorm/entities/Statistics';
+import StatisticsBySet from '@modules/statistics/infra/typeorm/entities/StatisticsBySet';
 import teamRouter from '@modules/team/infra/http/routes/team.routes';
 import Team from '@modules/team/infra/typeorm/entities/Team';
 
@@ -63,6 +66,12 @@ class Match {
     @OneToOne(() => Team, team => team)
     @JoinColumn({ name: 'team2' })
     team22: Team;
+
+    @OneToMany(() => Statistics, statistics => statistics.match)
+    statistics: Statistics;
+
+    @OneToMany(() => StatisticsBySet, statisticsBySet => statisticsBySet.match)
+    statisticsBySet: StatisticsBySet;
 }
 
 export default Match;
