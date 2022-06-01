@@ -1,10 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
-import ICompetitiomRepository from '@modules/competition/repositories/ICompetitionRepository';
 import AppError from '@shared/errors/AppError';
 
 import Member from '../infra/typeorm/entities/Member';
-import Team from '../infra/typeorm/entities/Team';
 import IMemberRepository from '../repositories/IMemberRepository';
 import ITeamRepository from '../repositories/ITeamRepository';
 
